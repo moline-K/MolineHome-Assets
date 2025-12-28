@@ -1,0 +1,65 @@
+/* =========================================================
+   MolineHome – Authentik Theme
+   ========================================================= */
+
+/* ===== Brand variables ===== */
+:root {
+  --mh-accent: #F97316;   /* Orange */
+  --mh-primary: #1E3A5F;  /* Deep blue */
+  --mh-link: #2563EB;
+}
+
+/* ===== Flow background ===== */
+.ak-flow-background {
+  background-image: url("/assets/backgrounds/Highway-Aerial.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Optional dark overlay for readability */
+.ak-flow-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+/* Ensure content sits above overlay */
+.ak-flow-background > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Login card ===== */
+.ak-login-card {
+  border-top: 4px solid var(--mh-accent);
+}
+
+/* Optional logo override (if you want to force yours) */
+/*
+.ak-brand img {
+  content: url("/assets/logos/molinehome-logo.svg");
+  max-height: 48px;
+}
+*/
+
+/* ===== Primary buttons ===== */
+button.pf-c-button.pf-m-primary {
+  background-color: var(--mh-primary);
+}
+
+button.pf-c-button.pf-m-primary:hover {
+  background-color: var(--mh-link);
+}
+
+/* ===== Links ===== */
+a {
+  color: var(--mh-link);
+}
+
+a:hover {
+  color: var(--mh-accent);
+}
