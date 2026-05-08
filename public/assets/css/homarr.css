@@ -1,0 +1,88 @@
+/* =========================================================
+   MolineHome – Homarr Theme
+   ========================================================= */
+
+/* ===== Brand Variables ===== */
+:root {
+  --mh-primary: #1E3A5F;     /* Deep Blue */
+  --mh-accent: #F97316;      /* Orange */
+  --mh-link: #2563EB;        /* Bright Blue */
+  --mh-surface: #0F172A;     /* Dark card background */
+  --mh-surface-light: #1E293B;
+  --mh-border: #334155;
+}
+
+/* ===== Global Text Links ===== */
+a {
+  color: var(--mh-link);
+}
+
+a:hover {
+  color: var(--mh-accent);
+}
+
+/* ===== Header / Top Bar ===== */
+header,
+.homarr-header {
+  background-color: var(--mh-primary) !important;
+  border-bottom: 2px solid var(--mh-accent);
+}
+
+/* ===== Dashboard Cards ===== */
+.mantine-Card-root {
+  background-color: var(--mh-surface);
+  border: 1px solid var(--mh-border);
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.mantine-Card-root:hover {
+  border-color: var(--mh-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Buttons ===== */
+button,
+.mantine-Button-root {
+  background-color: var(--mh-primary);
+  border: none;
+}
+
+button:hover,
+.mantine-Button-root:hover {
+  background-color: var(--mh-link);
+}
+
+/* ===== Primary Accent Elements ===== */
+.mantine-Badge-root,
+.mantine-Progress-bar {
+  background-color: var(--mh-accent) !important;
+}
+
+/* ===== Inputs ===== */
+.mantine-Input-input {
+  background-color: var(--mh-surface-light);
+  border: 1px solid var(--mh-border);
+}
+
+.mantine-Input-input:focus {
+  border-color: var(--mh-accent);
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.25);
+}
+
+/* ===== Sidebar (if using) ===== */
+.mantine-AppShell-navbar {
+  background-color: var(--mh-surface);
+  border-right: 1px solid var(--mh-border);
+}
+
+/* ===== Section Titles ===== */
+h1, h2, h3 {
+  color: #E2E8F0;
+}
+
+/* ===== Subtle Accent Divider ===== */
+hr {
+  border-color: var(--mh-border);
+}

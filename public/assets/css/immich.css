@@ -1,0 +1,225 @@
+/* =========================================================
+   MolineHome Immich Theme
+   Refined to match the current app theme system:
+   - Deep navy surfaces
+   - Orange action accents
+   - Inter UI font
+   - JetBrains Mono for code-like content
+   Notes:
+   - Immich serves compiled, hashed Svelte CSS bundles.
+   - This file is intentionally written as a stable global
+     override layer rather than targeting version-specific
+     internal asset class names.
+   ========================================================= */
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter/Inter-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter/Inter-Italic-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --mh-primary: #092a4f;
+  --mh-primary-alt: #0a2244;
+  --mh-surface-dark: #0d203d;
+  --mh-surface-darker: #09162f;
+  --mh-surface-panel: #102646;
+  --mh-border: #234264;
+  --mh-border-soft: #1d3554;
+  --mh-text: #edf3f8;
+  --mh-text-muted: #b8c5d3;
+  --mh-link: #2563eb;
+  --mh-link-soft: #6ba4ff;
+  --mh-accent: #f3901a;
+  --mh-accent-soft: #fca214;
+  --mh-shadow: 0 20px 48px rgba(5, 19, 55, 0.22);
+  --mh-radius: 14px;
+  --mh-radius-sm: 10px;
+  --mh-font-ui: "Inter", "Segoe UI", sans-serif;
+  --mh-font-code: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+html,
+body {
+  font-family: var(--mh-font-ui) !important;
+}
+
+body {
+  color: var(--mh-text) !important;
+  text-rendering: optimizeLegibility;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--mh-font-code) !important;
+}
+
+/* Global UI font without touching likely icon glyphs in svg paths */
+body :is(
+  button,
+  input,
+  select,
+  textarea,
+  label,
+  a,
+  span,
+  p,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+) {
+  font-family: var(--mh-font-ui) !important;
+}
+
+/* Links */
+body a,
+body a:visited {
+  color: var(--mh-link) !important;
+}
+
+body a:hover {
+  color: var(--mh-accent) !important;
+}
+
+/* Buttons */
+body button,
+body .btn,
+body [role="button"],
+body [type="button"],
+body [type="submit"],
+body [type="reset"] {
+  border-radius: var(--mh-radius-sm) !important;
+  font-family: var(--mh-font-ui) !important;
+  transition: background-color 120ms ease, border-color 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+}
+
+body button:hover,
+body .btn:hover,
+body [role="button"]:hover,
+body [type="button"]:hover,
+body [type="submit"]:hover,
+body [type="reset"]:hover {
+  filter: brightness(1.04);
+}
+
+/* Focus ring */
+body *:focus-visible {
+  outline: 2px solid var(--mh-accent) !important;
+  outline-offset: 2px !important;
+}
+
+/* Inputs */
+body input,
+body textarea,
+body select,
+body [contenteditable="true"] {
+  border-radius: var(--mh-radius-sm) !important;
+  font-family: var(--mh-font-ui) !important;
+}
+
+body input:focus,
+body textarea:focus,
+body select:focus,
+body [contenteditable="true"]:focus {
+  border-color: var(--mh-accent) !important;
+  box-shadow: 0 0 0 2px rgba(243, 144, 26, 0.22) !important;
+}
+
+/* Panels / cards */
+body [class*="card"],
+body [class*="Card"],
+body [class*="panel"],
+body [class*="Panel"],
+body [class*="modal"],
+body [class*="Modal"],
+body [class*="drawer"],
+body [class*="Drawer"],
+body dialog {
+  border-radius: var(--mh-radius) !important;
+  border-color: var(--mh-border-soft) !important;
+  box-shadow: var(--mh-shadow);
+}
+
+/* Best-effort dark surface alignment for common containers */
+body [class*="sidebar"],
+body [class*="SideBar"],
+body [class*="nav"],
+body [class*="Nav"],
+body aside {
+  border-color: var(--mh-border-soft) !important;
+}
+
+/* Component-bundle-friendly form control overrides */
+body :is(
+  input,
+  textarea,
+  select,
+  button
+)[class],
+body [class*="input"],
+body [class*="Input"],
+body [class*="select"],
+body [class*="Select"],
+body [class*="textarea"],
+body [class*="Textarea"],
+body [class*="close"],
+body [class*="CloseButton"] {
+  border-radius: var(--mh-radius-sm) !important;
+}
+
+/* Timeline and sticky metadata surfaces tend to use compiled wrappers */
+body [class*="timeline"],
+body [class*="Timeline"],
+body [class*="bottom-info"],
+body [class*="BottomInfo"] {
+  border-color: var(--mh-border-soft) !important;
+}
+
+/* Tables / separators */
+hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(
+    90deg,
+    rgba(37, 99, 235, 0),
+    rgba(37, 99, 235, 0.6),
+    rgba(243, 144, 26, 0.75),
+    rgba(243, 144, 26, 0)
+  ) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(107, 164, 255, 0.36);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(243, 144, 26, 0.5);
+}
+
+/* Selection */
+::selection {
+  background: rgba(243, 144, 26, 0.22);
+}

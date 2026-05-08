@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MolineHome App Font Preview</title>
+  <style>
+    @font-face {
+      font-family: "Inter";
+      src: url("./fonts/inter/Inter-Variable.ttf") format("truetype");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url("./fonts/inter/Inter-Italic-Variable.ttf") format("truetype");
+      font-weight: 100 900;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #eef3f8;
+      --panel: #ffffff;
+      --panel-2: #f6f8fb;
+      --panel-dark: #0e203d;
+      --panel-dark-2: #09162f;
+      --ink: #051337;
+      --ink-muted: #53667d;
+      --ink-inverse: #edf3f8;
+      --ink-inverse-muted: #b8c5d3;
+      --accent: #ef8221;
+      --accent-2: #f3901a;
+      --border: #d9e0e8;
+      --shadow: 0 24px 60px rgba(5, 19, 55, 0.08);
+      --radius: 20px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(239, 130, 33, 0.08), transparent 24%),
+        linear-gradient(180deg, #f8fafc 0%, #eef3f8 100%);
+      color: var(--ink);
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .page {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 36px 24px 56px;
+    }
+
+    .hero {
+      margin-bottom: 26px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(239, 130, 33, 0.12);
+      color: #9a5417;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 14px 0 10px;
+      font-size: clamp(30px, 3.6vw, 50px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      max-width: 980px;
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 248, 251, 0.92));
+    }
+
+    .card-header h2 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #eef2f6;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #edf1f6;
+    }
+
+    .status-label {
+      color: var(--ink-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status-pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #eef2f6;
+      color: var(--ink-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .status-pill.loaded {
+      background: rgba(46, 139, 87, 0.12);
+      color: #246a45;
+    }
+
+    .status-pill.fallback {
+      background: rgba(199, 119, 0, 0.12);
+      color: #9c6607;
+    }
+
+    .preview {
+      padding: 20px;
+    }
+
+    .mock-app {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--panel);
+    }
+
+    .mock-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .mock-title {
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    .mock-actions {
+      display: flex;
+      gap: 8px;
+      color: var(--ink-muted);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c2cedb;
+    }
+
+    .mock-body {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      min-height: 510px;
+    }
+
+    .sidebar {
+      padding: 14px 10px;
+      background: var(--panel-2);
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar-group {
+      margin-bottom: 18px;
+    }
+
+    .sidebar-label {
+      margin: 0 0 8px;
+      color: var(--ink-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .nav-item.active {
+      background: rgba(239, 130, 33, 0.12);
+      color: var(--ink);
+      font-weight: 640;
+    }
+
+    .nav-icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: #9eb2c8;
+      flex: 0 0 auto;
+    }
+
+    .nav-item.active .nav-icon {
+      background: var(--accent);
+    }
+
+    .content {
+      padding: 18px 18px 22px;
+      background: var(--panel);
+    }
+
+    .glyph-test {
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid #edf1f6;
+    }
+
+    .glyph-test-label {
+      margin: 0 0 6px;
+      color: var(--ink-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .glyph-line {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 520;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+    }
+
+    .stress-test {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding: 14px;
+      border-radius: 14px;
+      background: #fbfcfe;
+      border: 1px solid #edf1f6;
+    }
+
+    .stress-row {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .stress-label {
+      color: var(--ink-muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .stress-sample {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+    }
+
+    .stress-sample.small {
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: 0;
+      font-weight: 450;
+    }
+
+    .stress-sample.bold {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tool {
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: #f5f7fa;
+      color: var(--ink-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tool.primary {
+      background: rgba(239, 130, 33, 0.12);
+      color: #ab5a15;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 32px;
+      font-weight: 670;
+      letter-spacing: -0.025em;
+    }
+
+    .subhead {
+      margin: 0 0 20px;
+      color: var(--ink-muted);
+      font-size: 15px;
+    }
+
+    .settings-grid {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid #edf1f6;
+    }
+
+    .setting-row h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 640;
+    }
+
+    .setting-row p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .value {
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 620;
+      white-space: nowrap;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+    }
+
+    .note,
+    .code,
+    .stats {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid #edf1f6;
+      background: #fbfcfe;
+    }
+
+    .note h3,
+    .stats h3,
+    .code h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .note p,
+    .stats p {
+      margin: 0 0 10px;
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 9px 0;
+      border-top: 1px solid #edf1f6;
+      font-size: 13px;
+    }
+
+    .stats-row:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    code,
+    pre {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    .inter {
+      --ui-font: "Inter", "Aptos", "Segoe UI", sans-serif;
+      --code-font: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+    }
+
+    .aptos {
+      --ui-font: "Aptos", "Inter", "Segoe UI", sans-serif;
+      --code-font: "Cascadia Code", "JetBrains Mono", "Consolas", monospace;
+    }
+
+    .plex {
+      --ui-font: "IBM Plex Sans", "Inter", "Segoe UI", sans-serif;
+      --code-font: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+    }
+
+    .card,
+    .card *:not(code):not(pre) {
+      font-family: var(--ui-font);
+    }
+
+    code,
+    pre {
+      font-family: var(--code-font);
+    }
+
+    .best {
+      position: relative;
+    }
+
+    .best::after {
+      content: "Recommended";
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(239, 130, 33, 0.12);
+      color: #a45a18;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      margin-top: 22px;
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1220px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .mock-body,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding: 24px 14px 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">Homelab App Typography</div>
+      <h1>UI Font Preview</h1>
+      <p>
+        This version is focused on app chrome, settings panels, dashboards, sidebars, and notes as a working tool,
+        not as a long-form writing environment. Compare the stacks in an Obsidian/Codex/VS Code style layout.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card inter best">
+        <header class="card-header">
+          <h2>Inter + JetBrains Mono</h2>
+          <div class="meta">Best overall standard for Obsidian, Codex, VS Code, and self-hosted apps.</div>
+          <div class="chips">
+            <span class="chip">Neutral</span>
+            <span class="chip">Modern</span>
+            <span class="chip">Excellent at small sizes</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">Preview Status</span>
+            <span class="status-pill" data-font-check='16px "Inter"' id="status-inter-ui">Checking…</span>
+          </div>
+        </header>
+        <div class="preview">
+          <div class="mock-app">
+            <div class="mock-topbar">
+              <div class="mock-title">MolineHome Dashboard</div>
+              <div class="mock-actions"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            </div>
+            <div class="mock-body">
+              <aside class="sidebar">
+                <div class="sidebar-group">
+                  <p class="sidebar-label">Services</p>
+                  <div class="nav-item active"><span class="nav-icon"></span>Observations</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Codex</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Grafana</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Authentik</div>
+                </div>
+                <div class="sidebar-group">
+                  <p class="sidebar-label">Admin</p>
+                  <div class="nav-item"><span class="nav-icon"></span>Docker</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Backups</div>
+                </div>
+              </aside>
+              <section class="content">
+                <div class="stress-test">
+                  <div class="stress-row">
+                    <div class="stress-label">Large</div>
+                    <p class="stress-sample">Hamburgefonstiv 1560 Ql1I</p>
+                  </div>
+                  <div class="stress-row">
+                    <div class="stress-label">UI</div>
+                    <p class="stress-sample small">Settings Dashboard Notifications Backlinks Templates</p>
+                  </div>
+                  <div class="stress-row">
+                    <div class="stress-label">Bold</div>
+                    <p class="stress-sample bold">Observations Service Metrics</p>
+                  </div>
+                </div>
+                <div class="glyph-test">
+                  <p class="glyph-test-label">Identity Sample</p>
+                  <p class="glyph-line">Il1 0O8 B8 Rg aQy @#% 56789</p>
+                </div>
+                <div class="toolbar">
+                  <div class="toolbar-left">
+                    <span class="tool primary">Save</span>
+                    <span class="tool">Command</span>
+                    <span class="tool">Preview</span>
+                  </div>
+                  <div class="toolbar-right">
+                    <span class="tool">Inter</span>
+                    <span class="tool">14px</span>
+                  </div>
+                </div>
+                <h3 class="section-title">Service Typography</h3>
+                <p class="subhead">Balanced, quiet, and consistent across application UIs.</p>
+                <div class="settings-grid">
+                  <div class="setting-row">
+                    <div><h3>Interface font</h3><p>Used for navigation, settings, and labels.</p></div>
+                    <div class="value">Inter</div>
+                  </div>
+                  <div class="setting-row">
+                    <div><h3>Code font</h3><p>Used for terminals, snippets, and editor-adjacent content.</p></div>
+                    <div class="value">JetBrains Mono</div>
+                  </div>
+                </div>
+                <div class="split">
+                  <div class="note">
+                    <h3>Note Panel</h3>
+                    <p><strong>General observations:</strong> Interface text stays legible in dense sidebars and settings views.</p>
+                    <p><strong>Recommendation:</strong> Best if you want one standard stack across the whole homelab.</p>
+                  </div>
+                  <div class="code">
+                    <h3>Code Sample</h3>
+                    <pre>services:
+  codex:
+    theme: molinehome
+    ui_font: Inter
+    code_font: JetBrains Mono</pre>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card aptos">
+        <header class="card-header">
+          <h2>Aptos + Cascadia Code</h2>
+          <div class="meta">Practical Windows-native choice with a slightly softer, more office-like feel.</div>
+          <div class="chips">
+            <span class="chip">Familiar</span>
+            <span class="chip">Practical</span>
+            <span class="chip">Low friction</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">Preview Status</span>
+            <span class="status-pill" data-font-check='16px "Aptos"' id="status-aptos-ui">Checking…</span>
+          </div>
+        </header>
+        <div class="preview">
+          <div class="mock-app">
+            <div class="mock-topbar">
+              <div class="mock-title">MolineHome Dashboard</div>
+              <div class="mock-actions"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            </div>
+            <div class="mock-body">
+              <aside class="sidebar">
+                <div class="sidebar-group">
+                  <p class="sidebar-label">Services</p>
+                  <div class="nav-item active"><span class="nav-icon"></span>Observations</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Codex</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Grafana</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Authentik</div>
+                </div>
+                <div class="sidebar-group">
+                  <p class="sidebar-label">Admin</p>
+                  <div class="nav-item"><span class="nav-icon"></span>Docker</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Backups</div>
+                </div>
+              </aside>
+              <section class="content">
+                <div class="stress-test">
+                  <div class="stress-row">
+                    <div class="stress-label">Large</div>
+                    <p class="stress-sample">Hamburgefonstiv 1560 Ql1I</p>
+                  </div>
+                  <div class="stress-row">
+                    <div class="stress-label">UI</div>
+                    <p class="stress-sample small">Settings Dashboard Notifications Backlinks Templates</p>
+                  </div>
+                  <div class="stress-row">
+                    <div class="stress-label">Bold</div>
+                    <p class="stress-sample bold">Observations Service Metrics</p>
+                  </div>
+                </div>
+                <div class="glyph-test">
+                  <p class="glyph-test-label">Identity Sample</p>
+                  <p class="glyph-line">Il1 0O8 B8 Rg aQy @#% 56789</p>
+                </div>
+                <div class="toolbar">
+                  <div class="toolbar-left">
+                    <span class="tool primary">Save</span>
+                    <span class="tool">Command</span>
+                    <span class="tool">Preview</span>
+                  </div>
+                  <div class="toolbar-right">
+                    <span class="tool">Aptos</span>
+                    <span class="tool">14px</span>
+                  </div>
+                </div>
+                <h3 class="section-title">Service Typography</h3>
+                <p class="subhead">Comfortable and familiar, with slightly rounder application text.</p>
+                <div class="settings-grid">
+                  <div class="setting-row">
+                    <div><h3>Interface font</h3><p>Used for navigation, settings, and labels.</p></div>
+                    <div class="value">Aptos</div>
+                  </div>
+                  <div class="setting-row">
+                    <div><h3>Code font</h3><p>Used for terminals, snippets, and editor-adjacent content.</p></div>
+                    <div class="value">Cascadia Code</div>
+                  </div>
+                </div>
+                <div class="split">
+                  <div class="note">
+                    <h3>Note Panel</h3>
+                    <p><strong>General observations:</strong> Feels slightly more familiar in Windows-heavy environments.</p>
+                    <p><strong>Recommendation:</strong> Good if you want comfort and broad practical availability.</p>
+                  </div>
+                  <div class="code">
+                    <h3>Code Sample</h3>
+                    <pre>services:
+  codex:
+    theme: molinehome
+    ui_font: Aptos
+    code_font: Cascadia Code</pre>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card plex">
+        <header class="card-header">
+          <h2>IBM Plex Sans + JetBrains Mono</h2>
+          <div class="meta">The most distinctive option, with a stronger infrastructure/tooling personality.</div>
+          <div class="chips">
+            <span class="chip">Technical</span>
+            <span class="chip">Distinctive</span>
+            <span class="chip">Higher personality</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">Preview Status</span>
+            <span class="status-pill" data-font-check='16px "IBM Plex Sans"' id="status-plex-ui">Checking…</span>
+          </div>
+        </header>
+        <div class="preview">
+          <div class="mock-app">
+            <div class="mock-topbar">
+              <div class="mock-title">MolineHome Dashboard</div>
+              <div class="mock-actions"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            </div>
+            <div class="mock-body">
+              <aside class="sidebar">
+                <div class="sidebar-group">
+                  <p class="sidebar-label">Services</p>
+                  <div class="nav-item active"><span class="nav-icon"></span>Observations</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Codex</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Grafana</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Authentik</div>
+                </div>
+                <div class="sidebar-group">
+                  <p class="sidebar-label">Admin</p>
+                  <div class="nav-item"><span class="nav-icon"></span>Docker</div>
+                  <div class="nav-item"><span class="nav-icon"></span>Backups</div>
+                </div>
+              </aside>
+              <section class="content">
+                <div class="stress-test">
+                  <div class="stress-row">
+                    <div class="stress-label">Large</div>
+                    <p class="stress-sample">Hamburgefonstiv 1560 Ql1I</p>
+                  </div>
+                  <div class="stress-row">
+                    <div class="stress-label">UI</div>
+                    <p class="stress-sample small">Settings Dashboard Notifications Backlinks Templates</p>
+                  </div>
+                  <div class="stress-row">
+                    <div class="stress-label">Bold</div>
+                    <p class="stress-sample bold">Observations Service Metrics</p>
+                  </div>
+                </div>
+                <div class="glyph-test">
+                  <p class="glyph-test-label">Identity Sample</p>
+                  <p class="glyph-line">Il1 0O8 B8 Rg aQy @#% 56789</p>
+                </div>
+                <div class="toolbar">
+                  <div class="toolbar-left">
+                    <span class="tool primary">Save</span>
+                    <span class="tool">Command</span>
+                    <span class="tool">Preview</span>
+                  </div>
+                  <div class="toolbar-right">
+                    <span class="tool">IBM Plex Sans</span>
+                    <span class="tool">14px</span>
+                  </div>
+                </div>
+                <h3 class="section-title">Service Typography</h3>
+                <p class="subhead">A little more voice, especially in dashboards and admin-heavy surfaces.</p>
+                <div class="settings-grid">
+                  <div class="setting-row">
+                    <div><h3>Interface font</h3><p>Used for navigation, settings, and labels.</p></div>
+                    <div class="value">IBM Plex Sans</div>
+                  </div>
+                  <div class="setting-row">
+                    <div><h3>Code font</h3><p>Used for terminals, snippets, and editor-adjacent content.</p></div>
+                    <div class="value">JetBrains Mono</div>
+                  </div>
+                </div>
+                <div class="split">
+                  <div class="note">
+                    <h3>Note Panel</h3>
+                    <p><strong>General observations:</strong> Strongest identity, but not as neutral as Inter across everything.</p>
+                    <p><strong>Recommendation:</strong> Good if you want your homelab to feel more intentionally technical.</p>
+                  </div>
+                  <div class="code">
+                    <h3>Code Sample</h3>
+                    <pre>services:
+  codex:
+    theme: molinehome
+    ui_font: IBM Plex Sans
+    code_font: JetBrains Mono</pre>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <p class="footer">
+      For the most accurate comparison, install the named fonts locally before judging them. If a font is missing,
+      your browser will fall back to the next family in the stack.
+    </p>
+  </main>
+  <script>
+    async function updateFontStatus() {
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_) {
+          // Ignore readiness failures and fall back to direct checks.
+        }
+      }
+
+      const checks = Array.from(document.querySelectorAll("[data-font-check]"));
+      checks.forEach((el) => {
+        const descriptor = el.getAttribute("data-font-check");
+        const loaded = document.fonts && document.fonts.check(descriptor);
+        el.classList.remove("loaded", "fallback");
+        if (loaded) {
+          el.textContent = "Loaded";
+          el.classList.add("loaded");
+        } else {
+          el.textContent = "Fallback";
+          el.classList.add("fallback");
+        }
+      });
+    }
+
+    updateFontStatus();
+  </script>
+</body>
+</html>

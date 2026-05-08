@@ -2,11 +2,52 @@
    MolineHome – Authentik Theme
    ========================================================= */
 
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter/Inter-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter/Inter-Italic-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ===== Brand variables ===== */
 :root {
   --mh-accent: #F97316;   /* Orange */
   --mh-primary: #1E3A5F;  /* Deep blue */
   --mh-link: #2563EB;
+  --mh-font-ui: "Inter", "Segoe UI", sans-serif;
+  --mh-font-code: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+/* ===== Typography ===== */
+body,
+button,
+input,
+select,
+textarea,
+.pf-c-button,
+.pf-c-form-control,
+.pf-c-title,
+.pf-c-form__label,
+.pf-c-login__main,
+.ak-login-card,
+.ak-brand {
+  font-family: var(--mh-font-ui);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--mh-font-code);
 }
 
 /* ===== Flow background ===== */
