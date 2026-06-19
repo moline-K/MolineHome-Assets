@@ -1,0 +1,42 @@
+{
+  "name": "molinehome-themes",
+  "displayName": "MolineHome Themes",
+  "description": "Light and dark VS Code themes based on the MolineHome homelab palette.",
+  "version": "0.1.0",
+  "publisher": "kmoline",
+  "license": "MIT",
+  "icon": "icon.png",
+  "keywords": [
+    "theme",
+    "color-theme",
+    "dark-theme",
+    "light-theme",
+    "homelab",
+    "molinehome"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmoline/MolineHome-Assets"
+  },
+  "homepage": "https://github.com/kmoline/MolineHome-Assets",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "MolineHome Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/molinehome-dark-color-theme.json"
+      },
+      {
+        "label": "MolineHome Light",
+        "uiTheme": "vs",
+        "path": "./themes/molinehome-light-color-theme.json"
+      }
+    ]
+  }
+}

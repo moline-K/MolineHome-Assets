@@ -1,0 +1,64 @@
+{
+  "name": "MolineHome",
+  "sources": {
+    "brandCss": "/public/assets/css/authentik.css",
+    "logo": "/public/assets/logos/molinehome-logo.svg"
+  },
+  "typography": {
+    "ui": [
+      "Inter",
+      "Segoe UI",
+      "sans-serif"
+    ],
+    "text": [
+      "Inter",
+      "Segoe UI",
+      "sans-serif"
+    ],
+    "code": [
+      "JetBrains Mono",
+      "Cascadia Code",
+      "Consolas",
+      "monospace"
+    ]
+  },
+  "core": {
+    "primary": "#092A4F",
+    "primaryAlt": "#0A2152",
+    "primaryDeep": "#051337",
+    "primaryInk": "#00011F",
+    "link": "#2563EB",
+    "accent": "#F97316",
+    "accentDeep": "#EF8221",
+    "accentWarm": "#F3901A",
+    "accentGold": "#FCA214",
+    "wood": "#7E5538",
+    "paper": "#F4F5F4"
+  },
+  "dark": {
+    "bg0": "#00011F",
+    "bg1": "#051337",
+    "bg2": "#092A4F",
+    "surface": "#0A2152",
+    "surfaceAlt": "#123765",
+    "text": "#F4F5F4",
+    "textMuted": "#B9C7D8",
+    "border": "#21456C",
+    "accent": "#F3901A",
+    "accentSoft": "#FCA214",
+    "link": "#6BA4FF"
+  },
+  "light": {
+    "bg0": "#F4F5F4",
+    "bg1": "#E8EDF3",
+    "bg2": "#D7E1EC",
+    "surface": "#FFFFFF",
+    "surfaceAlt": "#F1F5F9",
+    "text": "#051337",
+    "textMuted": "#4D617A",
+    "border": "#B8C6D6",
+    "accent": "#EF8221",
+    "accentSoft": "#FCA214",
+    "link": "#2563EB"
+  }
+}

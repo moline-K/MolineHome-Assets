@@ -1,0 +1,38 @@
+{
+  "name": "MolineHome Codex Reference",
+  "asOf": "2026-05-07",
+  "officiallySupported": {
+    "themeModes": [
+      "light",
+      "dark",
+      "system"
+    ],
+    "accentColor": true,
+    "customThemePackage": false,
+    "importStringPrefix": "codex-theme-v1"
+  },
+  "importExamples": {
+    "light": "codex-theme-v1:{\"codeThemeId\":\"one\",\"variant\":\"light\",\"theme\":{\"accent\":\"#EF8221\",\"surface\":\"#F5F7FA\",\"ink\":\"#051337\",\"contrast\":49,\"opaqueWindows\":true,\"fonts\":{\"ui\":\"Inter\",\"code\":\"JetBrains Mono\"},\"semanticColors\":{\"diffAdded\":\"#2E8B57\",\"diffRemoved\":\"#C84A3A\",\"skill\":\"#2563EB\"}}}",
+    "dark": "codex-theme-v1:{\"codeThemeId\":\"one\",\"variant\":\"dark\",\"theme\":{\"accent\":\"#F3901A\",\"surface\":\"#0D203D\",\"ink\":\"#EDF3F8\",\"contrast\":61,\"opaqueWindows\":true,\"fonts\":{\"ui\":\"Inter\",\"code\":\"JetBrains Mono\"},\"semanticColors\":{\"diffAdded\":\"#48C78E\",\"diffRemoved\":\"#FF8A80\",\"skill\":\"#6BA4FF\"}}}"
+  },
+  "dark": {
+    "accent": "#F3901A",
+    "backgroundPrimary": "#0D203D",
+    "backgroundSecondary": "#09162F",
+    "textPrimary": "#EDF3F8",
+    "textMuted": "#B8C5D3",
+    "uiFont": "Inter",
+    "codeFont": "JetBrains Mono",
+    "contrast": 61
+  },
+  "light": {
+    "accent": "#EF8221",
+    "backgroundPrimary": "#F5F7FA",
+    "backgroundSecondary": "#FFFFFF",
+    "textPrimary": "#051337",
+    "textMuted": "#53667D",
+    "uiFont": "Inter",
+    "codeFont": "JetBrains Mono",
+    "contrast": 49
+  }
+}

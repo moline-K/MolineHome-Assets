@@ -1,0 +1,8 @@
+{
+  "name": "MolineHome",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "author": "Kendon Moline",
+  "authorUrl": "https://github.com/kmoline",
+  "description": "A MolineHome homelab theme for Obsidian with coordinated light and dark modes."
+}
